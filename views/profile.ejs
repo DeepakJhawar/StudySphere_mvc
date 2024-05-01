@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UserProfile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="/">
+                    <span class="icon"><img src="/images/logo.png" /></span>
+                    <span class="title">StudySphere</span>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">DashBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/whiteBoard">
+                    <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+                    <span class="title">WhiteBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title" id="logoutBtn">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="topbar">
+            <div class="toggle-btn">
+                <ion-icon name="menu-outline"></ion-icon>
+            </div>
+        </div>
+        <div class="container">
+            <div class="profile-box">
+                <div class="profile-bg">
+                    <img src="/images/lightblue.jpeg" alt="profile-background" width="100%">
+                </div>
+                <div class="profile-info">
+                    <img src="/images/goku.jpg" alt="profile-photo">
+                    <h1>Ryle Stockholm</h1>
+                    <h3>Web Developer</h3>
+                    <div class="edit-icon">
+                        <a href="editProfile"><i class="fa-solid fa-pen-to-square"> Edit</i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="user-details">
+                <div class="box">
+                    <div class="attribute">
+                        <div class="label">
+                            <h2>Name</h2>
+                        </div>
+                        <div class="label-answer">
+                            <h4>Ryle Stockholm</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="attribute">
+                        <div class="label">
+                            <h2>Occupation</h2>
+                        </div>
+                        <div class="label-answer">
+                            <h4>Web Developer</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="attribute">
+                        <div class="label">
+                            <h2>Email Id</h2>
+                        </div>
+                        <div class="label-answer">
+                            <h4>ryle_stock@hotmail.com</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="attribute">
+                        <div class="label">
+                            <h2>Phone Number</h2>
+                        </div>
+                        <div class="label-answer">
+                            <h4>7869485674</h4>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="attribute">
+                        <div class="label">
+                            <h2>Address</h2>
+                        </div>
+                        <div class="label-answer">
+                            <h4>flat no,bld no,st no. area</h4>
+                        </div>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/dashboard.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

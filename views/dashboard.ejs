@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome <%= name %></title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="/">
+            <span class="icon"><img src="/images/logo.png" /></span>
+            <span class="title">StudySphere</span>
+          </a>
+        </li>
+        <li>
+          <a href="/dashboard">
+            <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+            <span class="title">DashBoard</span>
+          </a>
+        </li>
+        <li>
+          <a href="/whiteBoard">
+            <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+            <span class="title">WhiteBoard</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
+            <span class="title">Messages</span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+            <span class="title">Help</span>
+          </a>
+        </li>
+        <li>
+          <a href="/profile">
+            <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+            <span class="title">Profile</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+            <span class="title" id="logoutBtn">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main">
+    <div class="topbar">
+      <div class="toggle-btn">
+        <ion-icon name="menu-outline"></ion-icon>
+      </div>
+      <div class="welcome-message">
+        <h2>Welcome there ,<%=name%></h2>
+      </div>
+      <div class="meeting-code">
+        <label>
+          <button class="join" id="join-room">Create/Join a Room</button>
+        </label>
+      </div>
+    </div>
+    <div class="grid-container">
+      <div>
+        <section class="card_header">
+          Popular classes
+        </section>
+        <main class="cards">
+          <div class="scrolling-section">
+            <div class="card">
+              <h1>HTML , CSS</h1>
+              <button class="join-room"><a href="/room?room=htmlcss" style="text-decoration:none;color:white">Join</a></button>
+            </div>
+            <div class="card">
+              <h1>Javascript</h1>
+              <button class="join-room"><a href="/room?room=javascript" style="text-decoration:none;color:white">Join</a></button>
+            </div>
+            <div class="card">
+              <h1>Django</h1>
+              <button class="join-room"><a href="/room?room=django" style="text-decoration:none;color:white">Join</a></button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="log-container">
+      <h1>Previously Joined Rooms</h1>
+      <table border="1">
+        <thead>
+            <tr>
+                <th>Room Name</th>
+                <th>Joined Time</th>
+                <th>Join</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if(joinedRooms && joinedRooms.length > 0) { %>
+                <% joinedRooms.forEach(room => { %>
+                    <tr>
+                        <td><%= room.roomName %></td>
+                        <td><%= room.time %></td>
+                        <td><a href="/room?room=<%= room.roomName %>" >Join</a></td>
+                    </tr>
+                <% }); %>
+            <% } else { %>
+                <tr>
+                    <td colspan="3"><h4 style="text-align:center;">You have no previously joined rooms</h4></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    
+    </table>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <div class="meetings"></div>
+  <div id="logoutModal" class="modal">
+    <div class="modal-content">
+      <span class="close"><ion-icon name="close-outline"></ion-icon></span>
+      <p>Are you sure you want to log out?</p>
+      <button id="confirmLogout">Yes</button>
+      <button id="cancelLogout">No</button>
+    </div>
+  </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

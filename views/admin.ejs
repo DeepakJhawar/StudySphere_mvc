@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome <%= name %>
+  </title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="brand">StudySphere Administration</div>
+    <div class="nav-actions">
+      <span class="nav-action">Welcome Username</span>
+      <span class="nav-action"><a href="/logout">Logout</a></span>
+    </div>
+  </header>
+  <main class="main">
+    <section class="administration">
+      <div class="heading">Site Administration</div>
+    </section>
+    <div class="layout">
+      <section class="management">
+        <div class="AA">Collections</div>
+        <section class="management-links">
+          <div class="links">
+            <div class="link"><a href="/admin/users">
+                Users
+              </a></div>
+            <div class="actions">
+              <div class="action add-group"><a href="/admin/useradd">Add</a>
+              </div>
+            </div>
+          </div>
+          <div class="links">
+            <div class="link"><a href="/contacts">
+                Contacts
+              </a></div>
+            <div class="actions">
+            </div>
+          </div>
+    </div>
+    </section>
+    </section>
+    </div>
+  </main>
+</body>
+
+</html>

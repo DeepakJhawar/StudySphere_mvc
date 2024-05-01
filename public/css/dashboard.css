@@ -1,0 +1,516 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+* {
+  font-family: 'Raleway', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --blue: #94B9FF;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+  --purple: #5e17eb;
+  --blue2: #0A1D56;
+  --green1: #CDFFD8;
+  --green2: #9AFFB0;
+}
+
+body {
+  min-height: 100vh;
+  /* overflow-x: hidden; */
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.navigation {
+  position: fixed;
+  width: 220px;
+  height: 100%;
+  background-color: var(--blue);
+  border-left: 10px solid var(--blue);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+  padding: 10px;
+}
+
+.title {
+  font-weight: bold;
+  font-style: helvetica;
+}
+
+.navigation.active {
+  width: 80px;
+
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+
+.navigation ul li a .icon ion-icon {
+  padding-left: -2rem;
+  font-size: 1.75rem;
+}
+
+.navigation ul li a .icon img {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 50%;
+  margin-top: 0.8rem;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 37px 37px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 37px -37px 0 10px var(--white);
+  pointer-events: none;
+}
+
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 220px;
+  min-height: 100vh;
+  background-color: var(--white);
+  transition: 0.5s;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.meeting-code input[type="text"] {
+  margin-top: 10px;
+}
+
+.search label,
+.meeting-code label {
+  position: relative;
+  width: 100%;
+}
+
+.search label input,
+.meeting-code label input {
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  padding: 5px 20px;
+  padding-left: 35px;
+  font-size: 18px;
+  outline: none;
+  border: 1px solid var(--black2);
+  margin-top: 10px;
+}
+
+.search label ion-icon {
+  position: absolute;
+  margin-top: 10px;
+  left: 10px;
+  font-size: 1.2rem;
+}
+
+.heading h1 {
+  margin: 80px 10px 20px 50px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--black1);
+}
+
+.main-container .main-context {
+  display: flex;
+  align-items: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 40px;
+  border-radius: 8px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  color: #aaa;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #333;
+}
+
+button#confirmLogout {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 7px;
+  margin-right: 8px;
+  margin-left: 2rem;
+  cursor:pointer;
+  margin-left: auto;
+  background-color: #4caf50;
+}
+
+button#cancelLogout {
+  width: 60px;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 7px;
+  cursor:pointer;
+  background-color: #f44336;
+}
+
+.meeting-code button {
+  color: var(--white);
+  padding: 12px 24px;
+  width: 300px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  font-size: 16px;
+  font-weight:20px;
+  margin-top: 20px;
+  background-color: var(--blue2);
+}
+
+.meeting-code button:hover {
+  opacity: 0.9;
+}
+
+/* grid section */
+.grid-container {
+  display: flex;
+  max-height: 800px;
+}
+
+.grid-container .cards{
+  margin-top: -100px;
+}
+
+.scrolling-section {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  margin-top:100px;
+  margin-left:30px;
+  height: 400px;
+}
+
+.scrolling-section.scroll-move {
+  margin-top: 23px;
+  margin-right: 61px;
+  height: 460px;
+  width: 515px;
+  max-width: 420px;
+  max-height: 500px;
+  flex: 1;
+  overflow-x: hidden;
+}
+.extra-box {
+  width: 200px;
+  height: 100px;
+  background-color: #ddd;
+  margin-top: 10px;
+}
+
+.card {
+  background-color: var(--green1);
+  padding: 20px;
+  margin-left: 20px;
+  width: 375px;
+  height: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.card h1 {
+  padding: 10px;
+}
+
+.card button {
+  display: inline-block;
+  background-color: var(--blue2);
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  margin: 20px;
+  margin-left: 150px;
+  margin-top: 60px;
+}
+
+.card2 {
+  background-color: var(--green2);
+  padding: 10px;
+  margin-top: 50px;
+  margin-right: 10px;
+  margin-left: 10px;
+  width: 400px;
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card.enlarged {
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  transform: scale(1.1);
+  transition: 2s;
+  z-index: 1;
+}
+
+.card_header {
+  margin-left:40px;
+  margin-top:30px;
+  font-size: 35px;
+  color: var(--black1);
+  padding: 10px;
+  font-weight: bold;
+}
+
+.table_header {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  background-color: var(--blue2);
+  color: var(--white);
+  padding: 10px;
+  font-weight: bold;
+}
+
+.table {
+  width: 550px;
+  border-collapse: collapse;
+  margin-top: 50px;
+  border-spacing: 0;
+}
+
+.table_body {
+  width: 550px;
+}
+
+table th,
+table td {
+  width: 200px;
+  padding: 8px;
+  text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--green1);
+}
+
+.table.table-enlarged {
+  margin-right: 10px;
+  margin-left: 20px;
+  margin-top: 50px;
+  padding-left: 0px;
+  padding-right: 0px;
+  border-right-width: 0px;
+  transform: scale(1.2);
+  transition: 2s;
+  z-index: 1;
+}
+
+/*Search Bar*/
+
+.search-box {
+  width: 400px;
+  /* margin: 10px; */
+  margin-top: 20px;
+  border-radius: 10px;
+  border: #222 1px solid;
+
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  /* margin-top: 10px; */
+}
+
+input {
+  flex: 1;
+  height: 50px;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: 18px;
+  color: #333;
+}
+
+button {
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+
+button .fa-solid {
+  width: 25px;
+  color: #333;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+::placeholder {
+  color: #555;
+}
+
+.result-box ul {
+  border-top: 1px solid #999;
+  padding: 15px 10px;
+}
+
+.result-box ul li {
+  list-style: none;
+  border-radius: 3px;
+  padding: 15px 10px;
+  cursor: pointer;
+}
+
+.result-box ul li:hover {
+  background-color: #c9bdbd;
+}
+
+.result-box {
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.log-container{
+  margin-top:-170px;
+  margin-left:40px;
+}
+.log-container table{
+  margin-top:40px;
+  width:1000px;
+}

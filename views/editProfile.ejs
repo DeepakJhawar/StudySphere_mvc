@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link rel="stylesheet" href="css/edit_styles.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="/">
+                    <span class="icon"><img src="/images/logo.png" /></span>
+                    <span class="title">StudySphere</span>
+                </a>
+            </li>
+            <li>
+                <a href="/dashboard">
+                    <span class="icon"><ion-icon name="home-outline"></ion-icon></span>
+                    <span class="title">DashBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="/whiteBoard">
+                    <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
+                    <span class="title">WhiteBoard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
+                    <span class="title">Messages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+            <li>
+                <a href="/profile">
+                    <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+                    <span class="title">Profile</span>
+                </a>
+            </li>
+            <li>
+                <a>
+                    <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                    <span class="title" id="logoutBtn">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main">
+        <div class="flex-container">
+            <div class="container1">
+                <div class="image">
+                    <img src="/images/goku.jpg"></img>
+                </div><br>
+                <p>Change Profile picture</p>
+                <div class="name-field">
+                    <h1>NAME</h1>
+                    <form action="#" method="post">
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required><br><br>
+                        <label for="firstname">First Name:</label>
+                        <input type="text" id="firstname" name="firstname" required><br><br>
+                        <label for="secondname">Second Name:</label>
+                        <input type="text" id="secondname" name="secondname" required><br><br>
+                    </form>
+                </div>
+                <div class="occupation-field">
+                    <h1>OCCUPATION</h1>
+                    <form action="#" method="post">
+                        <label for="Occupation">Occupation:</label>
+                        <select id="occupation" name="occupation" required>
+                            <option value="Student">Student</option>
+                            <option value="Worker">Worker</option>
+                        </select><br><br>
+                        <label for="education" name="education" required>Education:</label>
+                        <select id="education" name="education" required>
+                            <option value="graduate">Graduate</option>
+                            <option value="post-graduate">Post Graduate</option>
+                            <option value="other">Other</option>
+                        </select><br><br>
+                        <label for="department" name="department" required>Department:</label>
+                        <input type="text" id="department" name="department" required>
+                    </form>
+                </div>
+            </div>
+            <div class="container2">
+                <div class="details">
+                    <h1>CONTACT DETAILS</h1>
+                    <form action="#" method="post">
+                        <label for="email-id" name="email-id" required>Email Id:</label><br>
+                        <input type="email" id="email" name="email" required><br>
+                        <label for="ph-number" name="ph-number" required>Ph Number:</label><br>
+                        <input type="text" id="ph-number" name="ph-number" required>
+                    </form>
+                </div>
+                <div class="address">
+                    <h1>ADDRESS</h1>
+                    <form action="#" method="post">
+                        <label for="street" name="street" required>Street:</label><br>
+                        <input type="text" id="street" name="street" required><br><br>
+                        <label for="area" name="area" required>Area:</label><br>
+                        <input type="text" id="area" name="area" required><br><br>
+                        <label for="state" name="state" required>State:</label><br>
+                        <input type="text" id="state" name="state" required><br><br>
+                    </form>
+                </div>
+                <button class="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script src="/js/editProfile.js"></script>
+    <script src="/js/editMongo.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

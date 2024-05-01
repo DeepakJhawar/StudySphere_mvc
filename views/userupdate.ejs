@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome <%= name %></title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/useradd.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="container">
+      <% if (error) { %>
+      <div class="messageBlock">
+        <p id="message">
+          <%= error %>
+        </p>
+      </div>
+      <% } %>
+      <h2>Add User</h2>
+      <form method="post">
+        <div style="width: 100%;">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" value="<%= user.email %>" disabled>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" value="<%= user.name %>" disabled>
+          <label for="role">Role:</label>
+          <select id="role" name="role">
+            <% if (!user.role || user.role == 'End User') { %>
+            <option value="End User" selected>End User</option>
+            <% } else { %>
+            <option value="End User">End User</option>
+            <% }%>
+            <% if (user.role && user.role == 'Help Admin') { %>
+            <option value="Help Admin" selected>Help Admin</option>
+            <% } else { %>
+            <option value="Help Admin">Help Admin</option>
+            <% }%>
+            <% if (user.role && user.role == 'Admin') { %>
+            <option value="Admin" selected>Admin</option>
+            <% } else { %>
+            <option value="Admin">Admin</option>
+            <% }%>
+          </select>
+        </div>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+  </div>
+  <script src="javascripts/home.js" type="module"></script>
+</body>
+
+</html>
+</body>

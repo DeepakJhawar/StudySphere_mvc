@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome <%= name %></title>
+  <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/users.css">
+</head>
+
+<body>
+  <div class="page">
+    <div class="statusContainer">
+      <a href="useradd">
+        <button class="action-btn add-btn">Add</button>
+      </a>
+      <% if (users) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% users.forEach(function(user) { %>
+          <tr>
+            <td><%= user.email %></td>
+            <td>
+              <a href="userupdate/<%= user.email %>" style="text-decoration: none; color: white;"><button class="action-btn update-btn" data-id=<%= user.email %>>Update</button></a>
+              <button class="action-btn delete-btn" data-id=<%= user.email %>>Delete</button>
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+      <% }; %>
+    </div>
+  </div>
+  <div id="logoutModal" class="modal">
+    <div class="modal-content">
+      <span class="close">
+        <ion-icon name="close-outline"></ion-icon>
+      </span>
+      <p>Are you sure you want to delete <p id="email"></p></p>
+      <button id="confirmLogout">Yes</button>
+      <button id="cancelLogout">No</button>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var logoutButton = document.getElementById("logoutBtn");
+      var logoutModal = document.getElementById("logoutModal");
+      var confirmLogoutBtn = document.getElementById("confirmLogout");
+      var cancelLogoutBtn = document.getElementById("cancelLogout");
+      var closeBtn = document.querySelector(".close");
+
+      document.querySelectorAll('.delete-btn').forEach(button => {
+        button.addEventListener("click", (event) => {
+          logoutModal.style.display = "block";
+          var id = event.target.dataset.id;
+          document.getElementById("email").innerText = id;
+          confirmLogoutBtn.setAttribute('data-id', id);
+        });
+      })
+
+      confirmLogoutBtn.addEventListener('click', () => {
+        var id = event.target.dataset.id;
+        fetch(`users/${id}`, {
+          method: 'DELETE'
+        }).then((response) => {
+          location.reload();
+        });
+      });
+
+      cancelLogoutBtn.addEventListener('click', () => {
+        logoutModal.style.display = "none";
+      });
+
+      closeBtn.addEventListener("click", () => {
+        logoutModal.style.display = "none";
+      });
+
+      window.addEventListener("click", (event) => {
+        if (event.target == logoutModal) {
+          logoutModal.style.display = "none";
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
