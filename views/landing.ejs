@@ -108,13 +108,15 @@
         <h5>No worries . Our team is here to help you right away</h5>
       </div>
       <div class="input-text">
-        <form name="responses" id="forms">
-          <input type="text" placeholder="Your Name" name="Name" reuqired />
-          <input type="email" placeholder="Your Email" name="E-mail" required />
+        <form name="responses" id="forms" action="/contact" method="post">
+          <input id="helpName" type="text" placeholder="Your Name" name="name" autocomplete="off" required/>
+          <input id="helpEmail" type="email" placeholder="Your Email" name="email" autocomplete="off" required />
           <input
             type="textarea"
+            id="helpMessage"
             placeholder="How can we help you?"
             name="Query"
+            autocomplete="off"
             required
           />
           <input type="submit" value="Send" />

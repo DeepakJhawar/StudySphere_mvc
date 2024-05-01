@@ -68,7 +68,7 @@ router.delete("/users/:email", isLoggedMiddleware, adminMiddleware, async (req, 
     const email = req.params.email;
     await collection.deleteOne({ email: email })
     res.send("Sucess");
-})
+});
 
 
 module.exports = router;

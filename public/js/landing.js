@@ -1,14 +1,3 @@
-const scriptURL =
-  "https://script.google.com/macros/s/AKfycbyaxBxkWaWhg20LyiMQKLuEPm-CW2EV3Gz6__7U4SkplFsu5YVNlOv8bzyZ_s7c5Q5x/exec";
-const form = document.forms["responses"];
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  fetch(scriptURL, { method: "POST", body: new FormData(form) })
-    .then((response) => console.log("Success!", response))
-    .catch((error) => console.error("Error!", error.message));
-});
-
 var buttons = document.getElementsByClassName('btn');
 
 for (var i = 0; i < buttons.length; i++) {
@@ -16,6 +5,33 @@ for (var i = 0; i < buttons.length; i++) {
         window.location.href = "http://localhost:5000/login";
     };
 }
+
+document.getElementById('forms').addEventListener('submit', async (event) => {
+  event.preventDefault();
+  const data = {
+    name: document.getElementById("helpName").value,
+    email: document.getElementById("helpEmail").value,
+    message: document.getElementById("helpMessage").value
+  };
+  console.log(data);
+  try {
+    const response = await fetch('/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    if (response.ok) {
+      alert('Message sent successfully!');
+    } else {
+      alert('Failed to send message. Please try again later.');
+    }
+  } catch (error) {
+    console.error(error);
+    alert('An error occurred. Please try again later.');
+  }
+});
 
 const myForm = document.querySelector('form[name="responses"]');
 myForm.addEventListener("submit", function(event) {
