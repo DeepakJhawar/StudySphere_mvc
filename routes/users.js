@@ -25,12 +25,17 @@ router.get('/whiteBoard', isLoggedMiddleware, (req, res) => {
   res.render('whiteBoard');
 });
 
-router.get('/editProfile', isLoggedMiddleware, (req, res) => {
-  res.render('editProfile');
+router.get('/editProfile', isLoggedMiddleware ,(req, res) => {
+  res.render('editProfile', { email: req.user.email, name: req.user.name, occupation: req.user.occupation, phnumber: req.user.phnumber, address: req.user.address});
 });
 
+router.post('/UpdateProfile', isLoggedMiddleware , async (req, res) => {
+  await collection.updateOne({email: req.user.email}, {'$set': {...req.body}})
+  res.json("done");
+})
+
 router.get('/profile', isLoggedMiddleware, (req, res) => {
-  res.render("profile");
+  res.render("profile", { email: req.user.email, name: req.user.name, occupation: req.user.occupation, phnumber: req.user.phnumber, address: req.user.address});
 })
 
 router.post("/join-room", isLoggedMiddleware, async (req, res) => {

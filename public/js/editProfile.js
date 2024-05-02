@@ -1,27 +1,36 @@
 document.addEventListener("DOMContentLoaded", function () {
     const editProfileForm = document.getElementById("editProfileForm");
-
+  
     editProfileForm.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        // Get form values
-        var username = document.getElementById("username").value;
-        var email = document.getElementById("email").value;
-
-        // Send data to backend
-        fetch("/UpdateProfile", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ username: username, email: email })
+      event.preventDefault();
+  
+      var occupation = document.getElementById("occupation").value;
+      var phnumber = document.getElementById("phnumber").value;
+      var address = document.getElementById("address").value;
+  
+      fetch("/UpdateProfile", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          occupation: occupation,
+          phnumber: phnumber,
+          address: address,
+        }),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          return response.json();
         })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                // Handle response from backend
-                alert(data.message);
-            })
-            .catch(error => console.error("Error:", error));
+        .then((data) => {
+          console.log(data);
+          alert("Data updated successfully");
+          window.location.href = "/profile"; 
+        })
+        .catch((error) => console.error("Error:", error));
     });
-});
+  });
+  

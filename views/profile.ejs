@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/profile.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -29,12 +30,6 @@
                 <a href="/whiteBoard">
                     <span class="icon"><ion-icon name="clipboard-outline"></ion-icon></span>
                     <span class="title">WhiteBoard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
                 </a>
             </li>
             <li>
@@ -69,9 +64,8 @@
                     <img src="/images/lightblue.jpeg" alt="profile-background" width="100%">
                 </div>
                 <div class="profile-info">
-                    <img src="/images/goku.jpg" alt="profile-photo">
-                    <h1>Ryle Stockholm</h1>
-                    <h3>Web Developer</h3>
+                    <h1><%= name %></h1>
+                    <h3><%= occupation %></h3>
                     <div class="edit-icon">
                         <a href="editProfile"><i class="fa-solid fa-pen-to-square"> Edit</i></a>
                     </div>
@@ -84,7 +78,7 @@
                             <h2>Name</h2>
                         </div>
                         <div class="label-answer">
-                            <h4>Ryle Stockholm</h4>
+                            <h4><%= name %></h4>
                         </div>
                     </div>
                     <hr>
@@ -93,7 +87,7 @@
                             <h2>Occupation</h2>
                         </div>
                         <div class="label-answer">
-                            <h4>Web Developer</h4>
+                            <h4><%= occupation %></h4>
                         </div>
                     </div>
                     <hr>
@@ -102,7 +96,7 @@
                             <h2>Email Id</h2>
                         </div>
                         <div class="label-answer">
-                            <h4>ryle_stock@hotmail.com</h4>
+                            <h4><%= email %></h4>
                         </div>
                     </div>
                     <hr>
@@ -111,7 +105,7 @@
                             <h2>Phone Number</h2>
                         </div>
                         <div class="label-answer">
-                            <h4>7869485674</h4>
+                            <h4><%= phnumber %></h4>
                         </div>
                     </div>
                     <hr>
@@ -120,7 +114,7 @@
                             <h2>Address</h2>
                         </div>
                         <div class="label-answer">
-                            <h4>flat no,bld no,st no. area</h4>
+                            <h4><%= address %></h4>
                         </div>
                     </div>
                     <hr>

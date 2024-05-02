@@ -1,13 +1,14 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+/* Add your custom CSS styles here */
 
+/* General Styles */
 * {
     font-family: 'Raleway', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-:root {
+  }
+  
+  :root {
     --blue: #94B9FF;
     --white: #fff;
     --gray: #f5f5f5;
@@ -17,20 +18,14 @@
     --blue2: #0A1D56;
     --green1: #CDFFD8;
     --green2: #9AFFB0;
-
-}
-
-body {
+  }
+  
+  body {
     min-height: 100vh;
-    /* overflow-x: hidden; */
-}
-
-.container {
-    position: relative;
-    width: 100%;
-}
-
-.navigation {
+  }
+  
+  /* Navigation Styles */
+  .navigation {
     position: fixed;
     width: 220px;
     height: 100%;
@@ -38,85 +33,68 @@ body {
     border-left: 10px solid var(--blue);
     transition: 0.5s;
     overflow: hidden;
-}
-
-.logo {
-    width: 70px;
-    height: auto;
-    padding: 10px;
-}
-
-.title {
-    font-weight: bold;
-    font-style: helvetica;
-}
-
-.navigation.active {
+  }
+  
+  .navigation.active {
     width: 80px;
-
-}
-
-.navigation ul {
+  }
+  
+  .navigation ul {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-}
-
-.navigation ul li {
+  }
+  
+  .navigation ul li {
     position: relative;
     width: 100%;
     list-style: none;
     border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
-}
-
-.navigation ul li:hover,
-.navigation ul li.hovered {
+  }
+  
+  .navigation ul li:hover,
+  .navigation ul li.hovered {
     background-color: var(--white);
-}
-
-.navigation ul li:nth-child(1) {
-    margin-bottom: 40px;
-}
-
-.navigation ul li a {
+  }
+  
+  .navigation ul li a {
     position: relative;
     display: block;
     width: 100%;
     display: flex;
     text-decoration: none;
     color: var(--white);
-}
-
-.navigation ul li:hover a,
-.navigation ul li.hovered a {
+  }
+  
+  .navigation ul li:hover a,
+  .navigation ul li.hovered a {
     color: var(--blue);
     cursor: pointer;
-}
-
-.navigation ul li a .icon {
+  }
+  
+  .navigation ul li a .icon {
     position: relative;
     display: block;
     min-width: 60px;
     height: 60px;
     line-height: 75px;
     text-align: center;
-}
-
-.navigation ul li a .icon ion-icon {
-    padding-left: -2rem;
+  }
+  
+  .navigation ul li a .icon ion-icon {
     font-size: 1.75rem;
-}
-
-.navigation ul li a .icon img {
+  }
+  
+  .navigation ul li a .icon img {
     height: 2rem;
     width: 2rem;
     border-radius: 50%;
     margin-top: 0.8rem;
-}
-
-.navigation ul li a .title {
+  }
+  
+  .navigation ul li a .title {
     position: relative;
     display: block;
     padding: 0 10px;
@@ -124,10 +102,10 @@ body {
     line-height: 60px;
     text-align: start;
     white-space: nowrap;
-}
-
-.navigation ul li:hover a::before,
-.navigation ul li.hovered a::before {
+  }
+  
+  .navigation ul li:hover a::before,
+  .navigation ul li.hovered a::before {
     content: '';
     position: absolute;
     right: 0;
@@ -138,10 +116,10 @@ body {
     border-radius: 50%;
     box-shadow: 37px 37px 0 10px var(--white);
     pointer-events: none;
-}
-
-.navigation ul li:hover a::after,
-.navigation ul li.hovered a::after {
+  }
+  
+  .navigation ul li:hover a::after,
+  .navigation ul li.hovered a::after {
     content: '';
     position: absolute;
     right: 0;
@@ -152,131 +130,168 @@ body {
     border-radius: 50%;
     box-shadow: 37px -37px 0 10px var(--white);
     pointer-events: none;
-}
-
-.main {
+  }
+  
+  /* Main Content Styles */
+  .main {
     position: absolute;
-    width: calc(100% - 300px);
+    width: calc(100% - 220px); /* Adjusted to 220px instead of 300px */
     left: 220px;
     min-height: 100vh;
     background-color: var(--white);
     transition: 0.5s;
-    margin-top: 0px
-}
-
-.flex-container {
+    margin-top: 0px;
+  }
+  
+  .topbar {
+    width: 100%;
+    height: 60px;
     display: flex;
-    /* Use flexbox layout */
     justify-content: space-between;
-    /* Distribute the child elements evenly */
-    align-items: flex-start;
-    /* Align the items at the top */
-    margin-top: 50px;
-    margin-left: 50px;
-    width: 1000px;
-}
-
-.container1,
-.container2 {
-    border-radius: 15px;
-    border: 1px solid black;
-    width: 90%;
-    /* Adjust width as needed */
-    min-height: 90vh;
-    /* Ensure both containers have equal height */
-}
-
-.container1 {
-    margin-right: 20px;
-    /* Add some spacing between containers */
-}
-
-.image {
-    margin-top: 30px;
-    margin-left: 20px;
+    align-items: center;
+    padding: 0 10px;
+  }
+  
+  .toggle-btn {
+    position: relative;
+    width: 60px;
+    height: 60px;
     display: flex;
-}
-
-img {
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .container {
+    margin-left: 30px;
+    margin-top: 0;
+    border-radius: 15px;
+  }
+  
+  /* Profile Box Styles */
+  .profile-box {
+    margin-left: 30px;
+    margin-top: 0;
+    background-color: #fff;
+    width: 80%;
+    height: 220px;
+    position: relative;
+    border-radius: 15px;
+    border: 1px solid var(--blue);
+    box-shadow: 0px 0px 3px var(--blue);
+  }
+  
+  .profile-bg {
+    position: absolute;
+    border-radius: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    overflow: hidden;
+  }
+  
+  .profile-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .profile-info {
+    padding: 0 25px;
+    width: 100%;
+    height: 140px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    text-align: center;
+  }
+  
+  .profile-info img {
     width: 150px;
     height: 150px;
-    border-radius: 50px;
-}
-
-p {
-    margin-left: 27px;
-}
-
-.name-field {
-    margin-left: 30px;
-    margin-top: 10px;
-}
-
-label {
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-
-input[type=text],
-select {
-    padding: 5px;
-    width: 250px;
-    margin-left: 10px;
-}
-
-input[type=submit] {
-    padding: 10px;
-}
-
-.occupation-field {
-    margin-top: 30px;
-    margin-left: 30px;
-}
-
-h1 {
-    margin-top: 10px;
-    margin-bottom: 20px;
-}
-
-h3 {
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
-.details {
-    margin-top: 30px;
-    margin-left: 30px;
-}
-
-input[type=email],
-input[type=number] {
-    padding: 5px;
-    width: 250px;
-    margin-bottom: 10px;
-
-}
-
-.address {
-    margin-top: 30px;
-    margin-left: 30px;
-}
-
-label .address {
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    margin: 10px;
-}
-
-.submit {
-    color: var(--white);
-    padding: 12px 24px;
-    width: 100px;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
+    border-radius: 50%;
+    background: #f5f5f5;
+    padding: 6px;
+    position: absolute;
+    bottom: 60%;
+    top: 0%;
+    transform: translate(-312%, -10%);
+    z-index: 1;
+  }
+  
+  .profile-info h1 {
+    text-align: left;
     margin-left: 200px;
-    margin-top: 10px;
+    margin-top: 65px;
+  }
+  
+  .profile-info h3 {
+    text-align: left;
+    margin-left: 255px;
+    margin-top: 2px;
+    display: flex;
+  }
+  
+  .edit-icon {
+    margin-left: 800px;
+  }
+  
+  /* User Details Styles */
+  .user-details {
+    width: 80%;
+    border: 1px solid var(--blue);
+    border-radius: 15px;
+    height: 450px;
+    margin-left: 30px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 3px var(--blue);
+  }
+  
+  .box {
+    margin-top: 30px;
+  }
+  
+  .attribute {
+    display: flex;
+    margin-top: 20px;
+    margin-left: 70px;
+    margin-right: 30px;
+  }
+  
+  .label {
+    padding: 5px;
+    width: 30%;
+    background-color: var(--gray);
+    margin-top: 5px;
+    text-align: left;
+  }
+  
+  .label-answer {
+    padding: 5px;
+    width: 60%;
+    margin-top: 2px;
+  }
+  
+  .label-answer h4 {
+    margin: 5px;
+    font-family: "Gill Sans", sans-serif;
+  }
+  
+  hr {
+    margin-left: 70px;
+    margin-right: 100px;
+  }
+  
+  button {
     background-color: var(--blue2);
-}
+    cursor: pointer;
+  }
+  
+  .submit button{
+    color: var(--white);
+    padding: 12px;
+    margin-top: 30px;
+    margin-left: 50px;
+  }
