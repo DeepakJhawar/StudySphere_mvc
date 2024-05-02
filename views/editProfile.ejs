@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Profile</title>
+    <title>UserProfile</title>
     <link rel="stylesheet" href="css/edit_styles.css">
     <link rel="shortcut icon" href="images/logo.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/dd85f82994.js" crossorigin="anonymous"></script>
+    
 </head>
 
 <body>
@@ -33,12 +34,6 @@
             </li>
             <li>
                 <a href="#">
-                    <span class="icon"><ion-icon name="chatbox-outline"></ion-icon></span>
-                    <span class="title">Messages</span>
-                </a>
-            </li>
-            <li>
-                <a href="#">
                     <span class="icon"><ion-icon name="help-circle-outline"></ion-icon></span>
                     <span class="title">Help</span>
                 </a>
@@ -58,69 +53,79 @@
         </ul>
     </div>
     <div class="main">
-        <div class="flex-container">
-            <div class="container1">
-                <div class="image">
-                    <img src="/images/goku.jpg"></img>
-                </div><br>
-                <p>Change Profile picture</p>
-                <div class="name-field">
-                    <h1>NAME</h1>
-                    <form action="#" method="post">
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required><br><br>
-                        <label for="firstname">First Name:</label>
-                        <input type="text" id="firstname" name="firstname" required><br><br>
-                        <label for="secondname">Second Name:</label>
-                        <input type="text" id="secondname" name="secondname" required><br><br>
-                    </form>
-                </div>
-                <div class="occupation-field">
-                    <h1>OCCUPATION</h1>
-                    <form action="#" method="post">
-                        <label for="Occupation">Occupation:</label>
-                        <select id="occupation" name="occupation" required>
-                            <option value="Student">Student</option>
-                            <option value="Worker">Worker</option>
-                        </select><br><br>
-                        <label for="education" name="education" required>Education:</label>
-                        <select id="education" name="education" required>
-                            <option value="graduate">Graduate</option>
-                            <option value="post-graduate">Post Graduate</option>
-                            <option value="other">Other</option>
-                        </select><br><br>
-                        <label for="department" name="department" required>Department:</label>
-                        <input type="text" id="department" name="department" required>
-                    </form>
-                </div>
-            </div>
-            <div class="container2">
-                <div class="details">
-                    <h1>CONTACT DETAILS</h1>
-                    <form action="#" method="post">
-                        <label for="email-id" name="email-id" required>Email Id:</label><br>
-                        <input type="email" id="email" name="email" required><br>
-                        <label for="ph-number" name="ph-number" required>Ph Number:</label><br>
-                        <input type="text" id="ph-number" name="ph-number" required>
-                    </form>
-                </div>
-                <div class="address">
-                    <h1>ADDRESS</h1>
-                    <form action="#" method="post">
-                        <label for="street" name="street" required>Street:</label><br>
-                        <input type="text" id="street" name="street" required><br><br>
-                        <label for="area" name="area" required>Area:</label><br>
-                        <input type="text" id="area" name="area" required><br><br>
-                        <label for="state" name="state" required>State:</label><br>
-                        <input type="text" id="state" name="state" required><br><br>
-                    </form>
-                </div>
-                <button class="submit">Submit</button>
+        <div class="topbar">
+            <div class="toggle-btn">
+                <ion-icon name="menu-outline"></ion-icon>
             </div>
         </div>
+        <div class="container">
+            <div class="profile-box">
+                <div class="profile-bg">
+                    <img src="/images/lightblue.jpeg" alt="profile-background" width="100%">
+                </div>
+                <div class="profile-info">
+                    <h1><%= name %></h1>
+                    <h3><%= occupation %></h3>
+                </div>
+            </div>
+                <div class="user-details">
+                    <form id="editProfileForm">
+                        <div class="box">
+                            <div class="attribute">
+                                <div class="label">
+                                    <h2>Name</h2>
+                                </div>
+                                <div class="label-answer">
+                                    <h4><%= name %></h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="attribute">
+                                <div class="label">
+                                    <h2>Occupation</h2>
+                                </div>
+                                <div class="label-answer">
+                                    <input type="text" id="occupation">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="attribute">
+                                <div class="label">
+                                    <h2>Email Id</h2>
+                                </div>
+                                <div class="label-answer">
+                                    <h4><%= email %></h4>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="attribute">
+                                <div class="label">
+                                    <h2>Phone Number</h2>
+                                </div>
+                                <div class="label-answer">
+                                    <input type="text" id="phnumber">
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="attribute">
+                                <div class="label">
+                                    <h2>Address</h2>
+                                </div>
+                                <div class="label-answer">
+                                    <input type="text" id="address">
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div class="submit">
+                            <button type="submit">Submit</button>
+                        </div>
+                    </form>  
+                </div>
+        </div>
     </div>
+    <!-- <script src="/js/dashboard.js"></script> -->
     <script src="/js/editProfile.js"></script>
-    <script src="/js/editMongo.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
