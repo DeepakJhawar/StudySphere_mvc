@@ -56,7 +56,6 @@
       var confirmLogoutBtn = document.getElementById("confirmLogout");
       var cancelLogoutBtn = document.getElementById("cancelLogout");
       var closeBtn = document.querySelector(".close");
-
       document.querySelectorAll('.delete-btn').forEach(button => {
         button.addEventListener("click", (event) => {
           logoutModal.style.display = "block";
@@ -65,7 +64,6 @@
           confirmLogoutBtn.setAttribute('data-id', id);
         });
       })
-
       confirmLogoutBtn.addEventListener('click', () => {
         var id = event.target.dataset.id;
         fetch(`users/${id}`, {
@@ -74,7 +72,6 @@
           location.reload();
         });
       });
-
       cancelLogoutBtn.addEventListener('click', () => {
         logoutModal.style.display = "none";
       });
