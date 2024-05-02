@@ -12,7 +12,6 @@ window.addEventListener("resize", function () {
     drawPoints();
 })
 
-
 let isPenDown = false;
 let PointsDb = [];
 let line = [];
@@ -65,7 +64,6 @@ function selectedPencilMD(e) {
             strokeStyle: ctx.strokeStyle,
             lineWidth: ctx.lineWidth
         }
-
     }
     line.push(point);
 };
@@ -110,7 +108,6 @@ canvas.addEventListener("mousedown", function (e) {
         rectmousedown = true;
         lmousex = e.x;
         lmousey = e.y - topOffSet;
-
     }
     else if (circlebtn.classList.contains("active-tool")) {
         rectmousedown = true;
@@ -129,10 +126,8 @@ canvas.addEventListener("mousedown", function (e) {
     }
     else {
         selectedPencilMD(e);
-
     }
 })
-
 
 canvas.addEventListener("mousemove", function (e) {
     if (rectbtn.classList.contains("active-tool")) {
@@ -291,4 +286,3 @@ canvas.addEventListener("mouseup", function (e) {
     drawPoints();
     console.log(PointsDb);
 })
-

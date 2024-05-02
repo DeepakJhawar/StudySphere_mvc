@@ -25,7 +25,6 @@ let circlebtn = document.querySelector("#circle-btn");
 let linebtn = document.querySelector("#line-btn");
 
 clearAll.addEventListener("click", function () {
-
     if (PointsDb.length != 0) {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         clearAllDb = PointsDb;
@@ -52,6 +51,7 @@ eraserSize.addEventListener("change", function (e) {
     eraserWidth = size;
     ctx.lineWidth = eraserWidth;
 })
+
 let myLastSelectedColor = "black";
 for (let i = 0; i < penColors.length; i++) {
     penColors[i].addEventListener("click", function () {
@@ -76,7 +76,6 @@ for (let i = 0; i < penColors.length; i++) {
             myCursor.style.cursor = "url('./resources-master/cursor/Crosshair white.cur'), auto";
         }
         myLastSelectedColor = ctx.strokeStyle;
-
     })
 }
 
@@ -119,7 +118,6 @@ eraser.addEventListener("click", function () {
     else {
         if (eraserOptions.classList.contains("hide")) {
             eraserOptions.classList.remove("hide");
-
         }
         else {
             eraserOptions.classList.add("hide");
@@ -136,7 +134,6 @@ eraser.addEventListener("click", function () {
 undo.addEventListener("click", undofunc);
 
 function undofunc() {
-
     eraserOptions.classList.add("hide")
     pencilOptions.classList.add("hide")
     console.log(ctx.strokeStyle);
@@ -148,23 +145,20 @@ function undofunc() {
         pencil.classList.add("active-tool");
         eraser.classList.remove("active-tool");
     }
+
     if (PointsDb.length == 0 && clearAllDb.length != 0) {
         PointsDb = clearAllDb;
         drawPoints();
     }
-
     else if (PointsDb.length) {
         let latestLine = PointsDb.pop();
         redoPoints.push(latestLine);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawPoints();
     }
+
     if (gridBtn.checked == true) {
         drawGrid(800, 400, "canvas");
-    }
-
-    if (undoVar == true) {
-        socket.emit("socketUndo", "true");
     }
 }
 
@@ -178,10 +172,10 @@ let undoVar = true;
 let redoVar = true;
 
 function redofunc() {
-
     eraserOptions.classList.add("hide");
     pencilOptions.classList.add("hide")
     console.log(ctx.strokeStyle);
+
     if (ctx.strokeStyle == "#ffffff") {
         pencil.classList.add("active-tool");
         eraser.classList.remove("active-tool");
@@ -190,6 +184,7 @@ function redofunc() {
         eraser.classList.add("active-tool");
         pencil.classList.remove("active-tool");
     }
+
     if (redoPoints.length) {
         let line = redoPoints.pop();
         PointsDb.push(line);
@@ -237,11 +232,9 @@ function redofunc() {
             }
         }
     }
+
     if (gridBtn.checked == true) {
         drawGrid(800, 400, "canvas");
-    }
-    if (redoVar == true) {
-        socket.emit("socketUndo", "false");
     }
 }
 
@@ -322,15 +315,13 @@ document.querySelector(".cornerBtn").addEventListener("click", function () {
         document.querySelector(".popupDiv").style.display = "block";
     }
 })
+
 document.querySelector("#bgColorInput").addEventListener("click", function () {
     if (document.querySelector(".bg-color-div").style.display == "block")
         document.querySelector(".bg-color-div").style.display = "none";
     else
         document.querySelector(".bg-color-div").style.display = "block";
 })
-document.querySelector("#gridInput").addEventListener("click", function () {
-
-});
 
 document.querySelector(".bg-black").addEventListener("click", function () {
     document.querySelector(".content").style.backgroundColor = "#000000";
@@ -350,10 +341,7 @@ document.querySelector(".bg-black").addEventListener("click", function () {
         drawGrid(800, 400, "canvas");
     }
     myTools.style.backgroundColor = "ivory";
-    socket.emit("bgColor", myEraserColor);
-
 });
-
 
 document.querySelector(".bg-pink").addEventListener("click", function () {
     document.querySelector(".content").style.backgroundColor = "#ffc0c8";
@@ -373,8 +361,6 @@ document.querySelector(".bg-pink").addEventListener("click", function () {
         drawGrid(800, 400, "canvas");
     }
     myTools.style.backgroundColor = "ivory";
-    socket.emit("bgColor", myEraserColor);
-
 });
 
 document.querySelector(".bg-white").addEventListener("click", function () {
@@ -395,8 +381,8 @@ document.querySelector(".bg-white").addEventListener("click", function () {
         drawGrid(800, 400, "canvas");
     }
     myTools.style.backgroundColor = "lavender";
-    socket.emit("bgColor", myEraserColor);
 });
+
 document.querySelector(".bg-grey").addEventListener("click", function () {
     document.querySelector(".content").style.backgroundColor = "#d3d3d3";
     myEraserColor = "#d3d3d3";
@@ -414,8 +400,8 @@ document.querySelector(".bg-grey").addEventListener("click", function () {
         drawGrid(800, 400, "canvas");
     }
     myTools.style.backgroundColor = "mistyrose";
-    socket.emit("bgColor", myEraserColor);
 });
+
 document.querySelector(".bg-skyblue").addEventListener("click", function () {
     document.querySelector(".content").style.backgroundColor = "#87ceeb";
     myEraserColor = "#87ceeb";
@@ -433,7 +419,6 @@ document.querySelector(".bg-skyblue").addEventListener("click", function () {
         drawGrid(800, 400, "canvas");
     }
     myTools.style.backgroundColor = "antiquewhite";
-    socket.emit("bgColor", myBackgroundColor);
 });
 
 document.addEventListener("keydown", function (e) {
@@ -462,7 +447,6 @@ circlebtn.addEventListener("click", function () {
     rectbtn.classList.remove("active-tool");
     trianglebtn.classList.remove("active-tool");
     linebtn.classList.remove("active-tool");
-
 })
 
 linebtn.addEventListener("click", function () {
@@ -472,7 +456,6 @@ linebtn.addEventListener("click", function () {
     rectbtn.classList.remove("active-tool");
     trianglebtn.classList.remove("active-tool");
     circlebtn.classList.remove("active-tool");
-
 })
 
 trianglebtn.addEventListener("click", function () {
@@ -482,7 +465,6 @@ trianglebtn.addEventListener("click", function () {
     rectbtn.classList.remove("active-tool");
     linebtn.classList.remove("active-tool");
     circlebtn.classList.remove("active-tool");
-
 })
 
 
