@@ -32,7 +32,12 @@ const Loginschema = new mongoose.Schema({
             roomName: String,
             time: Date
         }
-    ]
+    ],
+    address: {
+        type: String,
+    },
+    occupation: String,
+    phnumber: String,
 });
 
 const collection = new mongoose.model("users", Loginschema);
