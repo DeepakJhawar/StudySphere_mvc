@@ -3,7 +3,6 @@ var router = express.Router();
 const Contact = require("../models/contactModel");
 const helpAdminMiddleware = require("../middlewares/helpadminMiddleware");
 const isLoggedMiddleware = require("../middlewares/isLoggedMiddleware");
-
 router.get(
   "/contacts",
   isLoggedMiddleware,
@@ -34,6 +33,18 @@ router.post('/contact', async (req, res) => {
   }catch(error){
     console.log(error);
     return res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+router.delete('/contacts/:message', async (req, res) => {
+  const message = req.params.message;
+  console.log("del")
+  try {
+      await Contact.deleteOne({ message: message });
+      res.status(200).send('Query deleted successfully');
+  } catch (err) {
+      console.error('Error deleting query:', err);
+      res.status(500).send('Internal server error');
   }
 });
 
