@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const connect = mongoose.connect("mongodb+srv://deepakj22:bS4Y1Cqn1enCHP4q@studysphere.xkyr9rx.mongodb.net/login-tut?retryWrites=true&w=majority&appName=StudySphere");
+const connect = mongoose.connect(process.env.DATABASE);
 
 connect.then(() => {
     console.log("Database Connected Successfully");

@@ -66,8 +66,8 @@ router.post("/userupdate/:email", isLoggedMiddleware, adminMiddleware, async (re
 
 router.delete("/users/:email", isLoggedMiddleware, adminMiddleware, async (req, res) => {
     const email = req.params.email;
-    await collection.deleteOne({ email: email })
-    res.send("Sucess");
+    await collection.deleteOne({ email: email });
+    res.send("Success");
 });
 
 
