@@ -312,7 +312,6 @@ function drawPoints() {
     }
 
 }
-// 107:
 
 document.querySelector(".cornerBtn").addEventListener("click", function () {
     if (document.querySelector(".popupDiv").style.display == "block") {
@@ -437,7 +436,6 @@ document.querySelector(".bg-skyblue").addEventListener("click", function () {
     socket.emit("bgColor", myBackgroundColor);
 });
 
-// ======== Shortcuts =============
 document.addEventListener("keydown", function (e) {
     if (e.ctrlKey && e.key == "z") {
 
